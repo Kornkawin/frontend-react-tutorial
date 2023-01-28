@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import MyBar from './MyBar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+const App = () => {
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        // set data when loading screen (hook)
+        setData([
+            {id: 1, name: "John"},
+            {id: 2, name: "Jane"},
+        ])
+    }, []);
+
+    return (
+        <div>
+            <MyBar name="Me App"/>
+            <h1>Hello React App</h1>
+            {data.length}
+            <ul>
+                {data.map(item => (
+                    <li key={item.id}>{item.name}</li>
+                ))}
+            </ul>
+        </div>
+    );
+};
 
 export default App;
