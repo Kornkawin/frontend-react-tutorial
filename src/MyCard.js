@@ -5,23 +5,20 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
-export default function ImgMediaCard() {
+export default function MyCard(props) {
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card>
             <CardMedia
-                component="img"
-                alt="green iguana"
-                height="140"
-                image="/static/images/cards/contemplative-reptile.jpg"
+                sx={{ height: 140 }}
+                image={props.coverimage}
+                title={props.name}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                    {props.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+                    {props.detail}
                 </Typography>
             </CardContent>
             <CardActions>
